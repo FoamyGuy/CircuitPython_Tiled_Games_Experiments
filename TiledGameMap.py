@@ -80,8 +80,15 @@ class TiledGameMap(Group):
 
             if tile_index != 0:
                 # print("{}, {} = {}".format(_x, _y, tile_index - 1))
-                self._entity_tilegrid[_x, _y] = tile_index - 1
+                if self.get_tile_property(tile_index - 1, "player"):
+                    # place player
+                    self.player_loc["x"] = _x
+                    self.player_loc["y"] = _y
+                else:
+                    # place non-player entity
+                    self._entity_tilegrid[_x, _y] = tile_index - 1
             else:
+                # put empty space for tile id 0
                 # print("{}, {} = {}".format(_x, _y, 15))
                 self._entity_tilegrid[_x, _y] = 15
     @property
@@ -91,6 +98,11 @@ class TiledGameMap(Group):
     @property
     def tile_properties(self):
         return self._tile_properties
+
+    def get_tile_property(self, tile_id, property_name):
+        if property_name in self.tile_properties[tile_id]:
+            return self.tile_properties[tile_id][property_name]
+        return None
 
     def update_player_location(self):
         self._sprite_tilegrid.x = 16 * self.player_loc["x"]
