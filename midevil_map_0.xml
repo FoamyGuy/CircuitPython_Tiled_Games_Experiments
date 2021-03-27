@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="10" height="8" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="1">
+ <editorsettings>
+  <export target="midevil_map_1.json" format="json"/>
+ </editorsettings>
+ <tileset firstgid="1" name="midevil_pink" tilewidth="16" tileheight="16" tilecount="207" columns="23">
+  <image source="midevil_pink.bmp" trans="ff00ff" width="368" height="144"/>
+  <tile id="142">
+   <properties>
+    <property name="building" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="143">
+   <properties>
+    <property name="building" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="144">
+   <properties>
+    <property name="building" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="165">
+   <properties>
+    <property name="building" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="166">
+   <properties>
+    <property name="building" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="167">
+   <properties>
+    <property name="building" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="188">
+   <properties>
+    <property name="building" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="189">
+   <properties>
+    <property name="building" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="190">
+   <properties>
+    <property name="building" type="bool" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer id="1" name="Ground" width="10" height="8">
+  <data encoding="csv">
+1,19,19,19,19,19,19,19,19,1,
+1,1,1,1,2,2,2,2,2,2,
+1,1,1,1,2,2,1,1,1,2,
+2,2,2,2,1,1,2,1,1,2,
+2,1,1,2,1,1,2,2,1,1,
+1,1,2,1,2,1,2,2,2,1,
+1,2,1,2,1,1,1,2,1,1,
+2,1,1,1,1,1,1,1,2,2
+</data>
+ </layer>
+ <layer id="2" name="entity" width="10" height="8" visible="0">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,143,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,145,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+</map>
