@@ -4,7 +4,7 @@
      "export":
         {
          "format":"json",
-         "target":"good_map_1.json"
+         "target":"good_map_2.json"
         }
     },
  "height":8,
@@ -53,6 +53,15 @@
          "tilecount":15,
          "tileheight":16,
          "tiles":[
+                {
+                 "id":0,
+                 "properties":[
+                        {
+                         "name":"player",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
                 {
                  "id":1,
                  "properties":[
