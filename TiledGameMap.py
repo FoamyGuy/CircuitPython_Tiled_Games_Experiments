@@ -66,17 +66,35 @@ class TiledGameMap(Group):
         self._sprite_tilegrid.y = 16 * self.player_loc["y"]
 
 
-    def _load_tilegrids(self):
-        for index, tile_index in enumerate(self.map_obj['layers'][0]['data']):
-            _y = index // self.map_obj["width"]
-            _x = index % self.map_obj["width"]
+    def _load_tilegrids(self, x=1, y=2, width=10, height=8):
+
+        def _build_tiles_list(layer_index):
+            _tiles_to_load = []
+            for _y in range(height):
+                for _x in range(width):
+                    _extra_offset = (self.map_obj["width"] - width) * _y
+                    _tiles_to_load.append(
+                        self.map_obj['layers'][layer_index]['data'][_x + _y * width + start_index + _extra_offset])
+            return _tiles_to_load
+
+        _extra_offset = (self.map_obj["width"] - width) * y
+        start_index = y * width + x + _extra_offset
+        print("start index {}".format(start_index))
+
+
+        #_tiles_to_load = self.map_obj['layers'][0]['data'][start_index:start_index+count]
+
+        _background_tiles = _build_tiles_list(0)
+        for index, tile_index in enumerate(_background_tiles):
+            _y = index // width
+            _x = index % width
             # print("{}, {} = {}".format(_x, _y, tile_index - 1))
             self._background_tilegrid[_x, _y] = tile_index - 1
 
-        # print("=====")
-        for index, tile_index in enumerate(self.map_obj['layers'][1]['data']):
-            _y = index // self.map_obj["width"]
-            _x = index % self.map_obj["width"]
+        _entity_tiles = _build_tiles_list(1)
+        for index, tile_index in enumerate(_entity_tiles):
+            _y = index // width
+            _x = index % width
 
             if tile_index != 0:
                 # print("{}, {} = {}".format(_x, _y, tile_index - 1))
